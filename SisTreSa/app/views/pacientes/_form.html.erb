@@ -1,13 +1,10 @@
-<h1>Novo Paciente</h1>
-
-<%= render "form", paciente: @paciente %>
 
 <form action="/pacientes" accept-charset="UTF-8" method="post">
   <input type="hidden" name="authenticity_token" value="...">
   <div>
     <label for="nome_paciente">Nome</label><br>
     <input type="text" name="paciente[nome]" id="nome_paciente">
-    <% @paciente.errors.full_messages_for(:nome).each do |message| %>
+    <% paciente.errors.full_messages_for(:nome).each do |message| %>
         <div><%= message %></div>
     <% end %>
   </div>
@@ -16,7 +13,7 @@
   <div>
     <label for="idade_paciente">Idade</label><br>
     <input name="paciente[idade]" id="idade_paciente">
-    <% @paciente.errors.full_messages_for(:idade).each do |message| %>
+    <% paciente.errors.full_messages_for(:idade).each do |message| %>
         <div><%= message %></div>
     <% end %>
   </div>
@@ -24,12 +21,12 @@
   <div>
     <label for="cpf_paciente">CPF</label><br>
     <input name="paciente[cpf]" id="cpf_paciente">
-    <% @paciente.errors.full_messages_for(:cpf).each do |message| %>
+    <% paciente.errors.full_messages_for(:cpf).each do |message| %>
         <div><%= message %></div>
     <% end %>
   </div>
 
   <div>
-    <input type="submit" name="commit" value="Criar Paciente" data-disable-with="Create Paciente">
+    <input type="submit" name="commit" value="Atualizar Paciente" data-disable-with="Update Paciente">
   </div>
 </form>

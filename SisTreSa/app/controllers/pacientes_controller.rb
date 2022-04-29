@@ -20,6 +20,17 @@ class PacientesController < ApplicationController
     end
   end
 
+  def update
+    @paciente= Paciente.find(params[:id])
+
+    if @paciente.update(paciente_params)
+      redirect_to @paciente
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+
   private
     def paciente_params
       params.require(:paciente).permit(:nome, :idade, :cpf)
