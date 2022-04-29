@@ -1,0 +1,23 @@
+<h1>Novo Paciente</h1>
+
+<form action="/articles" accept-charset="UTF-8" method="post">
+  <input type="hidden" name="authenticity_token" value="...">
+  <div>
+    <label for="nome_paciente">Nome</label><br>
+    <input type="text" name="paciente[nome]" id="nome_paciente">
+  </div>
+
+  <div>
+    <label for="idade_paciente">Idade</label><br>
+    <input name="paciente[idade]" id="idade_paciente">
+  </div>
+
+  <div>
+    <label for="cpf_paciente">CPF</label><br>
+    <input name="paciente[cpf]" id="cpf_paciente">
+  </div>
+
+  <div>
+    <input type="submit" name="commit" value="Criar Paciente" data-disable-with="Create Paciente">
+  </div>
+</form>
