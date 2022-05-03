@@ -1,0 +1,16 @@
+<h1><%= @medico.nome %></h1>
+
+<p><%= @medico.crm %></p>
+
+<p><%= @medico.cpf %></p>
+
+<p><%= @medico.fone %></p>
+
+
+<ul>
+  <li><%= link_to "Editar", edit_medico_path(@medico) %></li>
+  <li><%= link_to "Deletar", medico_path(@medico), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Você tem certeza disso?"
+                  } %></li>
+</ul>

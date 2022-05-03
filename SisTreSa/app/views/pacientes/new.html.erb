@@ -1,35 +1,70 @@
 <h1>Novo Paciente</h1>
 
-<%= render "form", paciente: @paciente %>
+<!--<%= render "form", paciente: @paciente %>-->
 
-<form action="/pacientes" accept-charset="UTF-8" method="post">
-  <input type="hidden" name="authenticity_token" value="...">
+
+<%= form_for :paciente do |p| %>
+  
   <div>
     <label for="nome_paciente">Nome</label><br>
-    <input type="text" name="paciente[nome]" id="nome_paciente">
-    <% @paciente.errors.full_messages_for(:nome).each do |message| %>
-        <div><%= message %></div>
-    <% end %>
+    <input name="paciente[nome]" id="nome_paciente">
   </div>
   
 
   <div>
     <label for="idade_paciente">Idade</label><br>
     <input name="paciente[idade]" id="idade_paciente">
-    <% @paciente.errors.full_messages_for(:idade).each do |message| %>
-        <div><%= message %></div>
-    <% end %>
+
   </div>
 
   <div>
     <label for="cpf_paciente">CPF</label><br>
     <input name="paciente[cpf]" id="cpf_paciente">
-    <% @paciente.errors.full_messages_for(:cpf).each do |message| %>
-        <div><%= message %></div>
-    <% end %>
+    
   </div>
+
+  <div>
+    <label for="fone_paciente">Telefone/Celular</label><br>
+    <input name="paciente[fone]" id="fone_paciente">
+   
+  </div>
+
+  <h3>Endereço</h3>
+  <%= p.fields_for :endereco do |endereco_f| %>
+
+    <div>
+        <%= endereco_f.label :logradouro, 'Logradouro' %><br>
+        <%= endereco_f.text_field :logradouro %>
+    </div>
+    <div>
+        <%= endereco_f.label :numero, 'Numero' %><br>
+        <%= endereco_f.text_field :numero %>
+    </div>
+    <div>
+        <%= endereco_f.label :bairro, 'Bairro' %><br>
+        <%= endereco_f.text_field :bairro %>
+    </div>
+    <div>
+        <%= endereco_f.label :cidade, 'Cidade' %><br>
+        <%= endereco_f.text_field :cidade %>
+    </div>
+    <div>
+        <%= endereco_f.label :estado, 'Estado' %><br>
+        <%= endereco_f.text_field :estado %>
+    </div>
+    <div>
+        <%= endereco_f.label :pais, 'País' %><br>
+        <%= endereco_f.text_field :pais %>
+    </div>
+    <div>
+        <%= endereco_f.label :cep, 'CEP' %><br>
+        <%= endereco_f.text_field :cep %>
+    </div>
+
+  <% end %>
 
   <div>
     <input type="submit" name="commit" value="Criar Paciente" data-disable-with="Create Paciente">
   </div>
+  <% end %>
 </form>

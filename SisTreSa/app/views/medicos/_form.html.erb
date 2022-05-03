@@ -1,0 +1,39 @@
+
+<%= form_with model: medico do |form| %>
+  <div>
+    <%= form.label :nome %><br>
+    <%= form.text_field :nome %>
+    <% medico.errors.full_messages_for(:nome).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  
+  <div>
+    <%= form.label :crm %><br>
+    <%= form.text_field :crm %><br>
+    <% medico.errors.full_messages_for(:crm).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :cpf %><br>
+    <%= form.text_field  :cpf %><br>
+    <% medico.errors.full_messages_for(:cpf).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :fone %><br>
+    <%= form.text_field  :fone %><br>
+    <% medico.errors.full_messages_for(:fone).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <input type="submit" name="commit" value="Editar Médico" data-disable-with="Edit Medico">
+  </div>
+
+<% end %>

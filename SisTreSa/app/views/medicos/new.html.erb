@@ -1,0 +1,44 @@
+<h1>Novo Médico</h1>
+
+<%= render "form", medico: @medico %>
+
+<form action="/medicos" accept-charset="UTF-8" method="post">
+  <input type="hidden" name="authenticity_token" value="...">
+  <div>
+    <label for="nome_medico">Nome</label><br>
+    <input type="text" name="medico[nome]" id="nome_medico">
+    <% @medico.errors.full_messages_for(:nome).each do |message| %>
+        <div><%= message %></div>
+    <% end %>
+  </div>
+  
+
+  <div>
+    <label for="crm_medico">CRM</label><br>
+    <input name="medico[crm]" id="crm_medico">
+    <% @medico.errors.full_messages_for(:crm).each do |message| %>
+        <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <label for="cpf_medico">CPF</label><br>
+    <input name="medico[cpf]" id="cpf_medico">
+    <% @medico.errors.full_messages_for(:cpf).each do |message| %>
+        <div><%= message %></div>
+    <% end %>
+  </div>
+
+
+  <div>
+    <label for="fone_medico">Telefone/Celular</label><br>
+    <input name="medico[fone]" id="fone_medico">
+    <% @medico.errors.full_messages_for(:fone).each do |message| %>
+        <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <input type="submit" name="commit" value="Criar Médico" data-disable-with="Create Medico">
+  </div>
+</form>

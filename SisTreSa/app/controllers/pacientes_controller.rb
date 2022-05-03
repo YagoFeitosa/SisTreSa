@@ -20,6 +20,10 @@ class PacientesController < ApplicationController
     end
   end
 
+  def edit
+    @paciente = Paciente.find(params[:id])
+  end
+
   def update
     @paciente= Paciente.find(params[:id])
 
@@ -30,9 +34,16 @@ class PacientesController < ApplicationController
     end
   end
 
+  def destroy
+    @paciente = Paciente.find(params[:id])
+    @paciente.destroy
+
+    redirect_to root_path, status: :see_other
+  end
+
 
   private
     def paciente_params
-      params.require(:paciente).permit(:nome, :idade, :cpf)
+      params.require(:paciente).permit(:nome, :idade, :cpf, :fone)
     end
 end

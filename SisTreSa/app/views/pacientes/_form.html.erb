@@ -1,32 +1,31 @@
 
-<form action="/pacientes" accept-charset="UTF-8" method="post">
-  <input type="hidden" name="authenticity_token" value="...">
+<%= form_with model: paciente do |form| %>
   <div>
-    <label for="nome_paciente">Nome</label><br>
-    <input type="text" name="paciente[nome]" id="nome_paciente">
+    <%= form.label :nome %><br>
+    <%= form.text_field :nome %>
     <% paciente.errors.full_messages_for(:nome).each do |message| %>
-        <div><%= message %></div>
+      <div><%= message %></div>
     <% end %>
   </div>
   
-
   <div>
-    <label for="idade_paciente">Idade</label><br>
-    <input name="paciente[idade]" id="idade_paciente">
+    <%= form.label :idade %><br>
+    <%= form.text_field :idade %><br>
     <% paciente.errors.full_messages_for(:idade).each do |message| %>
-        <div><%= message %></div>
+      <div><%= message %></div>
     <% end %>
   </div>
 
   <div>
-    <label for="cpf_paciente">CPF</label><br>
-    <input name="paciente[cpf]" id="cpf_paciente">
+    <%= form.label :cpf %><br>
+    <%= form.text_field  :cpf %><br>
     <% paciente.errors.full_messages_for(:cpf).each do |message| %>
-        <div><%= message %></div>
+      <div><%= message %></div>
     <% end %>
   </div>
 
   <div>
-    <input type="submit" name="commit" value="Atualizar Paciente" data-disable-with="Update Paciente">
+    <input type="submit" name="commit" value="Editar Paciente" data-disable-with="Edit Paciente">
   </div>
-</form>
+
+<% end %>
