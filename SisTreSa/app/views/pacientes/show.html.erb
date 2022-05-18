@@ -1,3 +1,4 @@
+
 <h1><%= @paciente.nome %></h1>
 
 <p><%= @paciente.cpf %></p>
@@ -7,41 +8,13 @@
 <p><%= @paciente.fone %></p>
 
 <h2>Endereço</h2>
-<% if @paciente.endereco %>
-  <%= form_for @paciente.endereco do |builder| %>
-    <p>
-      <strong>Logradouro:</strong>
-      <%= builder.logradouro %>
-    </p>
+<% @paciente.endereco do |ender| %>
+  <p><%= ender.logradouro %><p>
+  <p><%= ender.numero %><p>
+  
+<% end %> 
 
-    <p>
-      <strong>Numero:</strong>
-      <%= builder.numero %>
-    </p>
-    <p>
-      <strong>Bairro:</strong>
-      <%= builder.bairro %>
-    </p>
 
-    <p>
-      <strong>Cidade:</strong>
-      <%= builder.cidade %>
-    </p>
-    <p>
-      <strong>Estado:</strong>
-      <%= builder.estado %>
-    </p>
-    <p>
-      <strong>País:</strong>
-      <%= builder.pais %>
-    </p>
-
-    <p>
-      <strong>CEP:</strong>
-      <%= builder.cep %>
-    </p>
-  <% end %>
-<% end %>
 <ul>
   <li><%= link_to "Editar", edit_paciente_path(@paciente) %></li>
   <li><%= link_to "Deletar", paciente_path(@paciente), data: {

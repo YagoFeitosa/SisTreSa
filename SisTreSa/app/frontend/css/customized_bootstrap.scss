@@ -1,0 +1,32 @@
+/** 
+* Set SCSS variables below
+*/
+
+// Custom variable, prefix with my- to avoid confusion
+$my-navbar-height: 60px;
+
+// Bootstrap setting
+$enable-negative-margins: true;
+
+// Bootstrap variable : typography
+$lead-font-weight: 400;
+
+/** 
+* Import bare minimum of bootstrap
+*/
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+
+/** 
+* 3 - Now you can refine Bootstrap here
+*/
+
+// missing utility function
+.cursor-pointer {
+  cursor: pointer;
+}
+
+// new utility class that relies on Bootstrap variable
+.halflead {
+  font-size: $font-size-base * 1.125;
+}

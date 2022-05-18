@@ -25,6 +25,49 @@
   </div>
 
   <div>
+    <%= form.label :fone %><br>
+    <%= form.text_field  :fone %><br>
+    <% paciente.errors.full_messages_for(:fone).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+
+  <h3>Endereço</h3>
+  <%= form.fields_for :endereco do |endereco_f| %>
+
+    <div>
+        <%= endereco_f.label :logradouro, 'Logradouro' %><br>
+        <%= endereco_f.text_field :logradouro %>
+    </div>
+    <div>
+        <%= endereco_f.label :numero, 'Numero' %><br>
+        <%= endereco_f.text_field :numero %>
+    </div>
+    <div>
+        <%= endereco_f.label :bairro, 'Bairro' %><br>
+        <%= endereco_f.text_field :bairro %>
+    </div>
+    <div>
+        <%= endereco_f.label :cidade, 'Cidade' %><br>
+        <%= endereco_f.text_field :cidade %>
+    </div>
+    <div>
+        <%= endereco_f.label :estado, 'Estado' %><br>
+        <%= endereco_f.text_field :estado %>
+    </div>
+    <div>
+        <%= endereco_f.label :pais, 'País' %><br>
+        <%= endereco_f.text_field :pais %>
+    </div>
+    <div>
+        <%= endereco_f.label :cep, 'CEP' %><br>
+        <%= endereco_f.text_field :cep %>
+    </div>
+
+  <% end %>
+
+  <div>
     <input type="submit" name="commit" value="Editar Paciente" data-disable-with="Edit Paciente">
   </div>
 

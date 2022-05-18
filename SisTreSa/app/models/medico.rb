@@ -4,4 +4,8 @@ class Medico < ApplicationRecord
     validates :cpf, presence: true, length: { minimum: 11, maximum: 11, }
     validates :fone, presence: true, length: { minimum: 9, maximum: 11, }
     
+    has_many :consultum
+    
+    validates_cpf_format_of :cpf, presence: { message: "CPF inválido"}
 end
+

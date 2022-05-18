@@ -1,0 +1,25 @@
+
+<h1>Consulta</h1>
+
+<h2>Data e Horário da Consulta</h2>
+<p><%= @consultum.dataConsulta.strftime("%d/%m/%Y %H:%M ") %></p>
+
+
+<h2>Médico</h2>
+<p>Nome: <%= @consultum.medico.nome %><p>
+<p>CRM: <%= @consultum.medico.crm %><p>
+
+
+<h2>Paciente</h2>
+<p>Nome: <%= @consultum.paciente.nome %><p>
+<p>CPF: <%= @consultum.paciente.cpf %><p>
+
+
+<ul>
+  <li><%= link_to "Editar", edit_consultum_path(@consultum) %></li>
+  <li><%= link_to "Deletar", consultum_path(@consultum), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Você tem certeza disso?"
+                  } %></li>
+</ul>
+

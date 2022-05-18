@@ -1,12 +1,18 @@
-<h1>Pacientes</h1>
+<div class="collapse" id="navbarToggleExternalContent">
+  <div class="bg-dark p-4">
+    <h2 class="text-white h4">Pacientes</h2>
 
-<ul>
-  <% @pacientes.each do |paciente| %>
-    <li>
-        <a href="<%= paciente_path(paciente) %>">
-            <%= paciente.nome %>
-        </a>
-    </li>
-  <% end %>
-  <%= link_to "Novo Paciente", new_paciente_path %>
-</ul>
+    <span class="text-muted">
+      <ul>
+        <% @pacientes.each do |paciente| %>
+          <li>
+              <a href="<%= paciente_path(paciente) %>">
+                  <%= paciente.nome %>
+              </a>
+          </li>
+        <% end %>
+        <%= link_to "Novo Paciente", new_paciente_path %>
+      </ul>
+    </span>
+  </div>
+</div>

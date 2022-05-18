@@ -2,8 +2,8 @@
 
 <!--<%= render "form", paciente: @paciente %>-->
 
+<%= form_with(model: @paciente) do |p| %>
 
-<%= form_for :paciente do |p| %>
   
   <div>
     <label for="nome_paciente">Nome</label><br>
@@ -64,7 +64,6 @@
   <% end %>
 
   <div>
-    <input type="submit" name="commit" value="Criar Paciente" data-disable-with="Create Paciente">
+    <%= p.submit %>
   </div>
-  <% end %>
-</form>
+<% end %>

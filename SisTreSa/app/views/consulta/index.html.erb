@@ -1,0 +1,18 @@
+<div class="collapse" id="navbarToggleExternalContent">
+  <div class="bg-dark p-4">
+    <h2 class="text-white h4">Consultas</h2>
+
+    <span class="text-muted">
+      <ul>
+        <% @consulta.each do |con| %>
+          <li>
+              <a href="<%= consultum_path(con) %>">
+                  <%= con.dataConsulta %>
+              </a>
+          </li>
+        <% end %>
+        <%= link_to "Nova Consulta", new_consultum_path %>
+      </ul>
+    </span>
+  </div>
+</div>

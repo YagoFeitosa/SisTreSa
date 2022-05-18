@@ -8,6 +8,7 @@ class PacientesController < ApplicationController
 
   def new
     @paciente = Paciente.new
+    @paciente.build_endereco
   end
 
   def create
@@ -44,6 +45,6 @@ class PacientesController < ApplicationController
 
   private
     def paciente_params
-      params.require(:paciente).permit(:nome, :idade, :cpf, :fone)
+      params.require(:paciente).permit(:nome, :idade, :cpf, :fone, endereco_attributes:[:logradouro, :numero, :bairro, :cidade, :estado, :pais, :cep])
     end
 end

@@ -1,0 +1,61 @@
+
+<%= form_with(model: @consultum) do |consulta| %>
+
+  <div>
+    <%= consulta.label :dataConsulta %><br>
+    <%= consulta.text_field :dataConsulta %>
+    <% consulta.errors.full_messages_for(:dataConsulta).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  
+
+  <h3>Médico</h3>
+  <%= consulta.fields_for :medico do |med| %>
+
+    <div>
+        <%= med.label :nome, 'Nome' %><br>
+        <%= med.text_field :nome %>
+    </div>
+    <div>
+        <%= med.label :crm, 'CRM' %><br>
+        <%= med.text_field :crm %>
+    </div>
+    <div>
+        <%= med.label :cpf, 'CPF' %><br>
+        <%= med.text_field :cpf %>
+    </div>
+    <div>
+        <%= med.label :fone, 'Fone' %><br>
+        <%= med.text_field :fone %>
+    </div>
+    
+  <% end %>
+
+  <h3>Paciente</h3>
+  <%= consulta.fields_for :paciente do |p| %>
+
+    <div>
+        <%= p.label :nome, 'Nome' %><br>
+        <%= p.text_field :nome %>
+    </div>
+    <div>
+        <%= p.label :idade, 'Idade' %><br>
+        <%= p.text_field :idade %>
+    </div>
+    <div>
+        <%= p.label :cpf, 'CPF' %><br>
+        <%= p.text_field :cpf %>
+    </div>
+    <div>
+        <%= p.label :fone, 'Fone' %><br>
+        <%= p.text_field :fone %>
+    </div>
+    
+  <% end %>
+
+  <div>
+    <input type="submit" name="commit" value="Editar Consulta" data-disable-with="Edit Consultum">
+  </div>
+
+<% end %>

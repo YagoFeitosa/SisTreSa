@@ -1,0 +1,73 @@
+<h1>Nova Consulta</h1>
+
+
+<%= form_with(model: @consultum) do |consulta| %>
+
+  
+  <div>
+    <h3>Data da Consulta</h3><br>
+    <%= consulta.datetime_select(:dataConsulta , :default => Time.now)%>
+  </div>
+  
+
+  <h3>Médico</h3>
+  <%= consulta.fields_for :medico_attributes do |med| %>
+
+    <div>
+        <%= med.label :nome, 'Nome' %><br>
+        <%= med.text_field :nome %>
+    </div>
+    <div>
+        <%= med.label :crm, 'CRM' %><br>
+        <%= med.text_field :crm %>
+    </div>
+    <div>
+        <%= med.label :cpf, 'CPF' %><br>
+        <%= med.text_field :cpf %>
+    </div>
+    <div>
+        <%= med.label :fone, 'Fone' %><br>
+        <%= med.text_field :fone %>
+    </div>
+    
+  <% end %>
+
+  <h3>Paciente</h3>
+  <%= consulta.fields_for :paciente_attributes do |p| %>
+
+    <div>
+        <%= p.label :nome, 'Nome' %><br>
+        <%= p.text_field :nome %>
+    </div>
+    <div>
+        <%= p.label :idade, 'Idade' %><br>
+        <%= p.text_field :idade %>
+    </div>
+    <div>
+        <%= p.label :cpf, 'CPF' %><br>
+        <%= p.text_field :cpf %>
+    </div>
+    <div>
+        <%= p.label :fone, 'Fone' %><br>
+        <%= p.text_field :fone %>
+    </div>
+    <h4>Endereço do Paciente</h4>
+      <%= p.fields_for :endereco_attributes do |endereco_f| %>
+
+        <p>Logradouro: <%= endereco_f.text_field :logradouro %></p>
+        <p>Numero: <%= endereco_f.text_field :numero %></p>
+        <p>Bairro: <%= endereco_f.text_field :bairro %></p>
+        <p>Cidade: <%= endereco_f.text_field :cidade %></p>
+        <p>Estado: <%= endereco_f.text_field :estado %></p>
+        <p>País: <%= endereco_f.text_field :pais %></p>
+        <p>CEP: <%= endereco_f.text_field :cep %></p>
+      
+
+      <% end %>
+  <% end %>
+
+
+  <div>
+    <%= consulta.submit %>
+  </div>
+<% end %>
